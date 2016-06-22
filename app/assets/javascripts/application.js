@@ -14,3 +14,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	bindListeners();
+});
+
+var bindListeners = function(){
+	boxListeners();
+};
+
+var boxListeners = function(){
+    $('.container').on('click', '#Box_2', function(e){
+        e.preventDefault();
+        console.log("Box_2 clicked: " + $(this).css('stroke') + "  " + this.id);
+        if ($(this).css('stroke')=== "rgb(0, 0, 0)"){
+            $(this).css({ stroke: "red"  });
+        } else {
+            $(this).css({ stroke: "black"});
+        };
+
+    });
+};
