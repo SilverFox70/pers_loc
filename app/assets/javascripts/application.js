@@ -24,13 +24,16 @@ var bindListeners = function(){
 };
 
 var boxListeners = function(){
-    $('.container').on('click', '#Box_2', function(e){
+    $('.container').on('click', function(e){
         e.preventDefault();
-        console.log("Box_2 clicked: " + $(this).css('stroke') + "  " + this.id);
-        if ($(this).css('stroke')=== "rgb(0, 0, 0)"){
-            $(this).css({ stroke: "red"  });
+        var thisItemId = e.target.id;
+        // Add logic so that ONLY Box items are effected by this click
+        var thisItem = document.getElementById(thisItemId);
+        console.log("Box_2 clicked: " + $(thisItem).css('stroke') + "  id:" + this.id + " item_id:" + thisItemId);
+        if ($(thisItem).css('stroke')=== "rgb(0, 0, 0)"){
+            $(thisItem).css({ stroke: "red"  });
         } else {
-            $(this).css({ stroke: "black"});
+            $(thisItem).css({ stroke: "black"});
         };
 
     });
